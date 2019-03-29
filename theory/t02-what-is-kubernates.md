@@ -22,6 +22,22 @@ The basic scheduling unit, which consists of one or more containers guaranteed t
 ## Deployments, replicas, and ReplicaSets
 A deployment is a YAML object that defines the pods and the number of container instances, called replicas, for each pod. You define the number of replicas you want to have running in the cluster via a ReplicaSet, which is part of the deployment object. So, for example, if a node running a pod dies, the replica set will ensure that another pod is scheduled on another available node.
 
+# Kubernates Hardware
+There are different types of hardware required for Kubernetes. Understand one thing that Kubernetes itself doesn’t need hardware, but the functioning system needs all the hardware.
+
+## Nodes
+Node is the smallest units of computing in Kubernates. It is a singular machine and resides in a cluster. Node doesn’t necessarily need to be a physical machine or a part of the hardware. It is either a physical machine or a virtual machine. For the data center, a node is a physical machine. Similarly, for Google Cloud Platform, a node is a virtual machine. For now, we are discussing the hardware of Kubernetes. So let us consider it accordingly. But don’t limit a node as the “hardware part”. In fact, we can simply view each machine as a set of CPU and RAM resources. These machines are in a cluster and their resources can be used as per the requirement. 
+
+![kubernates-node](https://www.level-up.one/wp-content/uploads/2018/07/1-3.png).
+
+## Cluster
+Nodes are appear to be small and cute processing units. we dont need to worry about the state of individual nodes because node are a part of the cluster. Also, a cluster is a collection of multiple nodes. All the nodes pool together their resources and together make a powerful machine.  When the programs are deployed onto the cluster, it dynamically handles the distribution. In short, it assigns tasks to individual nodes. In between the process, if any node is added or removed, the cluster shifts the work as per the need. The programmer need not concentrate on such things like which individual machine is running the code, etc. 
+
+![kubernates-cluster](https://www.level-up.one/wp-content/uploads/2018/07/module_02_first_app.png).
+
+
+## The Persistent Volumes
+he programs run on the cluster and are powered by the nodes. But they don’t run on specific nodes. The programs run dynamically. Thus, there is a need for storing the information and it can’t be stored randomly in any file system. Why? For example, a program saves the data to a file. But later on, the program is relocated to another node. Next time when the program needs the file, it won’t be at the expected place. The location address is changed. To solve this problem, the traditional local storage related to each node is considered as a temporary cache for holding programs. But any locally saved data can’t be expected to persist.
 
 # K8S on AWS
 
@@ -35,3 +51,5 @@ A deployment is a YAML object that defines the pods and the number of container 
 * GCP has high-level support for kubernates through its Google Container Engine (GKE) offering
 * It is possible to use kops or manual configuration to bring-up a cluster on Google Compute Engine VMs
 
+# Reference Links
+https://www.level-up.one/kubernetes-bible-beginners/
