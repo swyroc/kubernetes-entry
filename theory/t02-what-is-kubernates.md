@@ -22,3 +22,16 @@ The basic scheduling unit, which consists of one or more containers guaranteed t
 ## Deployments, replicas, and ReplicaSets
 A deployment is a YAML object that defines the pods and the number of container instances, called replicas, for each pod. You define the number of replicas you want to have running in the cluster via a ReplicaSet, which is part of the deployment object. So, for example, if a node running a pod dies, the replica set will ensure that another pod is scheduled on another available node.
 
+
+# K8S on AWS
+
+* AWS premier container offering, Elastic Container Service (ECS), is a proprietary orchestration system - not yet k8s compatiable
+* AWS has joined CNCF - it plans to support k8s in some form (ECS or new offering) is all-but-guaranteed
+* k8s on AWS will be setup directly on ECS instances by hand or using kops
+* kops is a tool for production grade k8s instllation, upgrades, and management - maintained by CNCF
+
+# K8S on GCP
+
+* GCP has high-level support for kubernates through its Google Container Engine (GKE) offering
+* It is possible to use kops or manual configuration to bring-up a cluster on Google Compute Engine VMs
+
