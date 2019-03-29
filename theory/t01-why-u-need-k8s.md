@@ -47,7 +47,7 @@ Container orchestration is all about managing the lifecycles of containers, espe
 
 # High-level Architecture Design
 
-If container orchestration tool wants to do the high-level management, then from the top there should have many instructions to define something.
+If container orchestration tool wants to do the high-level management, then from the top there should has many instructions to define something.
 
 * There should has a configuration file tells tool the detail of the container management.
 * The configuration file lists all the necessary factors that tool needs to do the control and management.
