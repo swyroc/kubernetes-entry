@@ -17,7 +17,7 @@ The master manages the scheduling and deployment of application instances across
 Each Kubernetes node runs an agent process called a kubelet that’s responsible for managing the state of the node: starting, stopping, and maintaining application containers based on instructions from the control plane. A kubelet receives all of its information from the Kubernetes API server.
 
 ## Pods
-The basic scheduling unit, which consists of one or more containers guaranteed to be co-located on the host machine and able to share resources. Each pod is assigned a unique IP address within the cluster, allowing the application to use ports without conflict. You describe the desired state of the containers in a pod through a YAML or JSON object called a PodSpec. These objects are passed to the kubelet through the API server
+**The basic scheduling unit**, which consists of **one or more containers** guaranteed to be co-located on the host machine and able to share resources. Each pod is assigned a unique IP address within the cluster, allowing the application to use ports without conflict. You describe the desired state of the containers in a pod through a YAML or JSON object called a PodSpec. These objects are passed to the kubelet through the API server
 
 ## Deployments, replicas, and ReplicaSets
 A deployment is a YAML object that defines the pods and the number of container instances, called replicas, for each pod. You define the number of replicas you want to have running in the cluster via a ReplicaSet, which is part of the deployment object. So, for example, if a node running a pod dies, the replica set will ensure that another pod is scheduled on another available node.
