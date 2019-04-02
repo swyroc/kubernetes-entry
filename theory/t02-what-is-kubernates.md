@@ -7,7 +7,7 @@
 
 # Main Architecture Components of Kubernates
 
-Before you look into some concepts of kubernates, you need to realize that: the components of kubernates always mixed with some other concepts such as hardware concepts. For example, _the master manages the scheduling and deployment across nodes_, the master is the concept of kubernates components, meanshile nodes is the kubernates hardware concept.
+Before you look into some concepts of kubernates, you need to realize that: the components of kubernates always mixed with some other concepts such as hardware concepts. For example, _the master manages the scheduling and deployment across nodes_, the master is the concept of kubernates components, meanwhile nodes is the kubernates hardware concept.
 
 ## Cluster. 
 A cluster is a set of nodes with at least one master node and several worker nodes (sometimes referred to minions) that can be virtual or physical machines.
@@ -23,6 +23,8 @@ Each Kubernetes node runs an agent process called a kubelet that’s responsible
 
 ## Deployments, replicas, and ReplicaSets
 A deployment is a YAML object that defines the pods and the number of container instances, called replicas, for each pod. You define the number of replicas you want to have running in the cluster via a ReplicaSet, which is part of the deployment object. So, for example, if a node running a pod dies, the replica set will ensure that another pod is scheduled on another available node.
+
+![kubernates-components](https://github.com/HuangMarco/kubernates-entry/blob/dev/z_Resources/images/kubernates-components.jpg).
 
 # Kubernates Hardware
 There are different types of hardware required for Kubernetes. Understand one thing that Kubernetes itself doesn’t need hardware, but the functioning system needs all the hardware.
