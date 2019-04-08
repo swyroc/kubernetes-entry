@@ -1,9 +1,9 @@
 # Overview of minikube
-* A all-in-one install of Kubernates
-* Takes all the distributed components of Kubernates and packages them into a single virtual machine to run locally
+* A all-in-one install of Kubernetes
+* Takes all the distributed components of Kubernetes and packages them into a single virtual machine to run locally
 * A few (important) caveats
-* Minikube will be a Kubernates cluster running on your machine
-* You will use kubectl to connect to minikube as connect to Kubernates clusters
+* Minikube will be a Kubernetes cluster running on your machine
+* You will use kubectl to connect to minikube as connect to Kubernetes clusters
 
 
 

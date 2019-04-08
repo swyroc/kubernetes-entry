@@ -18,16 +18,16 @@ If you have ten containers and four applications, it’s not that difficult to m
 It is not difficult to create a container for application, but when you want to scale the application from one container to multiple containers, many issues might show themselves for the scalablity. From above we realize that: **We need a tool to help us with scaling the existing multiple containers**.
 
 <br>
-Kubernates is the tool to help with container management - automating the deployment, management, scaling, networking and availability of multiple containers.
-Kubernates is the container orchestration tool.
+Kubernetes is the tool to help with container management - automating the deployment, management, scaling, networking and availability of multiple containers.
+Kubernetes is the container orchestration tool.
 
-![Old Shipment](https://github.com/HuangMarco/kubernates-entry/blob/dev/z_Resources/images/old-shipment.jpg)
+![Old Shipment](https://github.com/HuangMarco/Kubernetes-entry/blob/dev/z_Resources/images/old-shipment.jpg)
 
 Before, all the goods are shipped by a boat and goods are loose and are not well organized. The unit of shipping goods is the box. After the goods are shipped to the land, worker needs to sort each goods box and classify them according to each goods box's belongling.
 
 And now look at the modern shipment:<br>
 
-![Old Shipment](https://github.com/HuangMarco/kubernates-entry/blob/dev/z_Resources/images/modern-shipment.jpg)
+![Old Shipment](https://github.com/HuangMarco/Kubernetes-entry/blob/dev/z_Resources/images/modern-shipment.jpg)
 
 Now the goods are shipped by using container. Goods are placed into container and goods are well organized. There is a mechanism to manage all the containers. By managing containers the goods are also well managed. This is called container orchestration. If one container cannot afford the shipment of the goods then worker could add another container to solve the problem.
 

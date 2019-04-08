@@ -1,14 +1,14 @@
 
-# What is kubernates
+# What is Kubernetes
 
-* Kubernates is the gold standard of the container orchestration
-* Kubernates is developed by google and as an offshoot project named as [Borg Project](https://kubernetes.io/blog/2015/04/borg-predecessor-to-kubernetes/).
-* Kubernates is the flagship project of the [Cloud Native Computing Foundation](https://www.cncf.io/).
-* Kubernates is backed by many key players such as Google, AWS, Microsoft, IBM, Intel, Cisco, and RedHat.
+* Kubernetes is the gold standard of the container orchestration
+* Kubernetes is developed by google and as an offshoot project named as [Borg Project](https://kubernetes.io/blog/2015/04/borg-predecessor-to-kubernetes/).
+* Kubernetes is the flagship project of the [Cloud Native Computing Foundation](https://www.cncf.io/).
+* Kubernetes is backed by many key players such as Google, AWS, Microsoft, IBM, Intel, Cisco, and RedHat.
 
-# Main Architecture Components of Kubernates
+# Main Architecture Components of Kubernetes
 
-Before you look into some concepts of kubernates, you need to realize that: the components of kubernates always mixed with some other concepts such as hardware concepts. For example, _the master manages the scheduling and deployment across nodes_, the master is the concept of kubernates components, meanwhile nodes is the kubernates hardware concept.
+Before you look into some concepts of Kubernetes, you need to realize that: the components of Kubernetes always mixed with some other concepts such as hardware concepts. For example, _the master manages the scheduling and deployment across nodes_, the master is the concept of Kubernetes components, meanwhile nodes is the Kubernetes hardware concept.
 
 ## Cluster. 
 A cluster is a set of nodes with at least one master node and several worker nodes (sometimes referred to minions) that can be virtual or physical machines.
@@ -30,36 +30,36 @@ The pods can replicate in Kubernetes. For example, an application becomes popula
 
 But it is not necessary that replication occurs only during heavy load. A pod can replicate during normal conditions as well. This helps in uniform load balancing and resisting failures.
 
-![kubernates-pods](https://github.com/HuangMarco/kubernates-entry/blob/dev/z_Resources/images/Kubernetes-Pods.jpg)
+![Kubernetes-pods](https://github.com/HuangMarco/Kubernetes-entry/blob/dev/z_Resources/images/Kubernetes-Pods.jpg)
 
 ## Deployments, replicas, and ReplicaSets
 A deployment is a YAML object that defines the pods and the number of container instances, called replicas, for each pod. You define the number of replicas you want to have running in the cluster via a ReplicaSet, which is part of the deployment object. So, for example, if a node running a pod dies, the replica set will ensure that another pod is scheduled on another available node.
 
-![kubernates-deployments](https://github.com/HuangMarco/kubernates-entry/blob/dev/z_Resources/images/kubernates-deployment.png)
+![Kubernetes-deployments](https://github.com/HuangMarco/Kubernetes-entry/blob/dev/z_Resources/images/Kubernetes-deployment.png)
 
 ## Overall Structure
 
-![kubernates-components](https://github.com/HuangMarco/kubernates-entry/blob/dev/z_Resources/images/kubernates-components.jpg)
+![Kubernetes-components](https://github.com/HuangMarco/Kubernetes-entry/blob/dev/z_Resources/images/Kubernetes-components.jpg)
 
 
-# Kubernates Hardware
+# Kubernetes Hardware
 There are different types of hardware required for Kubernetes. Understand one thing that Kubernetes itself doesn’t need hardware, but the functioning system needs all the hardware.
 
 ## Nodes
-Node is the smallest units of computing in Kubernates. It is a singular machine and resides in a cluster. Node doesn’t necessarily need to be a physical machine or a part of the hardware. It is either a physical machine or a virtual machine. For the data center, a node is a physical machine. Similarly, for Google Cloud Platform, a node is a virtual machine. For now, we are discussing the hardware of Kubernetes. So let us consider it accordingly. But don’t limit a node as the “hardware part”. In fact, we can simply view each machine as a set of CPU and RAM resources. These machines are in a cluster and their resources can be used as per the requirement. 
+Node is the smallest units of computing in Kubernetes. It is a singular machine and resides in a cluster. Node doesn’t necessarily need to be a physical machine or a part of the hardware. It is either a physical machine or a virtual machine. For the data center, a node is a physical machine. Similarly, for Google Cloud Platform, a node is a virtual machine. For now, we are discussing the hardware of Kubernetes. So let us consider it accordingly. But don’t limit a node as the “hardware part”. In fact, we can simply view each machine as a set of CPU and RAM resources. These machines are in a cluster and their resources can be used as per the requirement. 
 
-![kubernates-node](https://www.level-up.one/wp-content/uploads/2018/07/1-3.png).
+![Kubernetes-node](https://www.level-up.one/wp-content/uploads/2018/07/1-3.png).
 
 ## Cluster
 Nodes are appear to be small and cute processing units. we dont need to worry about the state of individual nodes because node are a part of the cluster. Also, a cluster is a collection of multiple nodes. All the nodes pool together their resources and together make a powerful machine.  When the programs are deployed onto the cluster, it dynamically handles the distribution. In short, it assigns tasks to individual nodes. In between the process, if any node is added or removed, the cluster shifts the work as per the need. The programmer need not concentrate on such things like which individual machine is running the code, etc. 
 
-![kubernates-cluster](https://www.level-up.one/wp-content/uploads/2018/07/module_02_first_app.png).
+![Kubernetes-cluster](https://www.level-up.one/wp-content/uploads/2018/07/module_02_first_app.png).
 
 
 ## The Persistent Volumes
 The programs run on the cluster and are powered by the nodes. But they don’t run on specific nodes. The programs run dynamically. Thus, there is a need for storing the information and it can’t be stored randomly in any file system. Why? For example, a program saves the data to a file. But later on, the program is relocated to another node. Next time when the program needs the file, it won’t be at the expected place. The location address is changed. To solve this problem, the traditional local storage related to each node is considered as a temporary cache for holding programs. But any locally saved data can’t be expected to persist.
 
-# Kubernates Software
+# Kubernetes Software
 ## Containers
 In Kubernetes, Linux containers host the programs. These containers are globally accepted and already have pre-built images. The images can be deployed on Kubernetes. Do you know what is containerization? It allows you to create Linux execution environments.
 
@@ -77,7 +77,7 @@ The containers are capable of handling multiple programs. But it is recommended 
 
 # K8S on GCP
 
-* GCP has high-level support for kubernates through its Google Container Engine (GKE) offering
+* GCP has high-level support for Kubernetes through its Google Container Engine (GKE) offering
 * It is possible to use kops or manual configuration to bring-up a cluster on Google Compute Engine VMs
 
 # Reference Links
