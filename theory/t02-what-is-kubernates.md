@@ -57,7 +57,7 @@ Nodes are appear to be small and cute processing units. we dont need to worry ab
 
 
 ## The Persistent Volumes
-he programs run on the cluster and are powered by the nodes. But they don’t run on specific nodes. The programs run dynamically. Thus, there is a need for storing the information and it can’t be stored randomly in any file system. Why? For example, a program saves the data to a file. But later on, the program is relocated to another node. Next time when the program needs the file, it won’t be at the expected place. The location address is changed. To solve this problem, the traditional local storage related to each node is considered as a temporary cache for holding programs. But any locally saved data can’t be expected to persist.
+The programs run on the cluster and are powered by the nodes. But they don’t run on specific nodes. The programs run dynamically. Thus, there is a need for storing the information and it can’t be stored randomly in any file system. Why? For example, a program saves the data to a file. But later on, the program is relocated to another node. Next time when the program needs the file, it won’t be at the expected place. The location address is changed. To solve this problem, the traditional local storage related to each node is considered as a temporary cache for holding programs. But any locally saved data can’t be expected to persist.
 
 # Kubernates Software
 ## Containers
