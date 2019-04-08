@@ -63,8 +63,13 @@ mv minikube /usr/local/bin/minikube
 minikube version
 ```
 
+# Resources
 
-# USTC Mirrors
+## Aliyun minikube
+
+https://github.com/AliyunContainerService/minikube
+
+## USTC Mirrors
 https://mirrors.ustc.edu.cn/
 <br>
 https://mirrors.ustc.edu.cn/kubernetes/apt/pool/
