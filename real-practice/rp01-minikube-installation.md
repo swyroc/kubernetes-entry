@@ -41,22 +41,6 @@ minikube version
 For more detail of the minikube installation, please refer to [here](https://kubernetes.io/docs/tasks/tools/install-minikube/).
 
 
-# Installation of minikube - China
-Because the outside network is slow and some websites are forbbiden, so we need to use the _minikube_ released by Aliyun.
-<br>
-For minikube in Aliyun, please refer to [Here](https://github.com/AliyunContainerService/minikube) and [Here](https://blog.csdn.net/CSDN_duomaomao/article/details/78568551).
-You need to choose which version you need for minikube.
-
-```sh
-curl -Lo minikube https://storage.googleapis.com/minikube/releases/v1.0.0/minikube-linux-amd64 \
-  && chmod +x minikube
-
-# move minikube to the path
-mv minikube /usr/local/bin/minikube
-# check the version
-minikube version
-```
-
 # Resources
 
 ## Aliyun minikube
