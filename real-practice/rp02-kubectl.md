@@ -19,13 +19,13 @@ kubectl [command] [TYPE] [NAME] [flags]
     <br>Example: kubectl get pod/example-pod1 replicationcontroller/example-rc1
     - Resources with one or more files: -f file1 -f file2 -f file<#>. 
     <br>Example: kubectl get pod -f ./pod.yaml
-    <br>Notice: The file should be yaml or json format.
+    <br>Notice: The file should be YAML or Json format. The kubernetes official prefer to YAML more than Json.
 
 
 * flags - Specifies optional flags.
 
 
-### kubectl api-resources
+## kubectl api-resources
 
 ```sh
 
@@ -36,9 +36,63 @@ kubectl api-resources # All the resources will display on the console
 ### Example commands
 
 ```sh
+kubectl run --help
+
+# Run a specified image hello-minikube on the cluster.
 
 kubectl run hello-minikube --image=gcr.io/google_containers/echoserver:1.4 --port=8080
 
+
+# Expose a replication controller, service, or pod as a new Kubernetes service.
+kubectl expose --help
+
 kubectl expose deployment hello-minikube --type=NodePort
 
+kubectl get pod # you will get the service you created, here it is hello-minikube
+
+minikube service <you service name> --url
 ```
+
+## Two way to run a container
+
+### kubectl run
+```sh
+kubectl run nginx --image=nginx --port=8989
+
+```
+### kubectl expose
+```sh
+kubectl expose deployment nginx --type=NodePort
+
+kubectl get pod # you will get the service you created, here it is hello-minikube
+
+minikube service <you service name> --url
+
+```
+
+## Delete resources
+### kubectl delete <resource type>
+
+```sh
+kubectl get pod
+kubectl delete pod <pod name you copy from above resule>
+```
+
+**Notice**: <br> 
+* The resouce type should be exactly the same with option after _kubectl delete_. E.g, _kubectl delete pod <pod name but not service name>_ 
+<br>
+You need to be firstly clear with the concept of **deployment, pod, container**. If you create a pod by running _kubectl expose deployment <deployment name>_, it will not work in case you just run _kubectl delete pod <pod name>_. See below for example:
+<br>
+
+```sh
+kubectl run hello-minikube --image=gcr.io/google_containers/echoserver:1.4 --port=8080
+
+# you cannot just use kubectl delete pod, because outside there is a deployment there, even you delete the pod it will continue to create new pod
+
+# kubectl delete deployment used to both of the two ways of running a container: kubectl run & kubectl expose
+
+kubectl delete deployment hello-minikube
+
+```
+
+* If you deploy
