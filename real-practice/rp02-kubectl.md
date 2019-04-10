@@ -70,6 +70,9 @@ minikube service <you service name> --url
 
 ```
 
+**Notice**:No matter which way you use to create pod, at last you will find that: docker will create new image for you. E.g, you execute _kubectl expose deployment nginx --type=NodePort_ then you execute _docker images_ you will find the nginx image there.
+
+
 ## Delete resources
 ### kubectl delete <resource type>
 
@@ -94,5 +97,3 @@ kubectl run hello-minikube --image=gcr.io/google_containers/echoserver:1.4 --por
 kubectl delete deployment hello-minikube
 
 ```
-
-* If you deploy
