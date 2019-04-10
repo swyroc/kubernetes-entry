@@ -21,7 +21,7 @@ curl -Lo minikube http://kubernetes.oss-cn-hangzhou.aliyuncs.com/minikube/releas
 
 **Recommended**:Please refer to [Here](https://github.com/HuangMarco/knowledge-hub/blob/dev/linux-operation/linux_installation_softwares_components.md#kubernates).
 <br>
-And also refer to [](https://yangmingxiong.com/).
+And also refer to [小明小明](https://yangmingxiong.com/).
 
 
 # Installation of minikube - Official
