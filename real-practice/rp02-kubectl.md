@@ -24,6 +24,17 @@ kubectl [command] [TYPE] [NAME] [flags]
 
 * flags - Specifies optional flags.
 
+
+### kubectl api-resources
+
+```sh
+
+kubectl api-resources # All the resources will display on the console
+
+```
+
+### Example commands
+
 ```sh
 
 kubectl run hello-minikube --image=gcr.io/google_containers/echoserver:1.4 --port=8080
