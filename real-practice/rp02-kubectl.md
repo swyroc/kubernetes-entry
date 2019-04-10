@@ -84,7 +84,8 @@ kubectl delete pod <pod name you copy from above resule>
 **Notice**: <br> 
 * The resouce type should be exactly the same with option after _kubectl delete_. E.g, _kubectl delete pod <pod name but not service name>_ 
 <br>
-You need to be firstly clear with the concept of **deployment, pod, container**. If you create a pod by running _kubectl expose deployment <deployment name>_, it will not work in case you just run _kubectl delete pod <pod name>_. See below for example:
+
+You need to be firstly clear with the concept of **deployment pod container** . If you create a pod by running _kubectl expose deployment <deployment name>_, it will not work in case you just run _kubectl delete pod <pod name>_. See below for example:
 <br>
 
 ```sh
