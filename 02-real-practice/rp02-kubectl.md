@@ -163,6 +163,9 @@ minikube dashboard
 
 ![Kubernetes-minikube-dashboard-service-detail](https://github.com/HuangMarco/Kubernetes-entry/blob/dev/z_Resources/images/kubernetes-minikube-dashboard-service-detail.jpg)
 
+## Request the container
+
+![Kubernetes-request-container](https://github.com/HuangMarco/Kubernetes-entry/blob/dev/z_Resources/images/kubernetes-request-container.jpg)
 
 
 
