@@ -107,6 +107,17 @@ Docker is considered as the _container creator_, and kubernetes is considered as
 * Docker is responsible for creating container|image
 * Kubernetes is responsible for using container|image to create pod
 
+
+## Test image first by purely running docker container
+```sh
+docker images
+docker run -p 8090:8080 ht5767751012/java-related:js-01
+
+
+```
+
+## Kubernetes Operations
+
 ```sh
 docker pull <username>/<repository name>:<tag number>
 
@@ -118,4 +129,41 @@ kubectl run <service name> --image=<the docker image address you get from previo
 
 kubectl get pod # query the status of the new created pod
 
+kubectl get nodes
+
 ```
+
+
+
+# Example of running kubernetes with docker image
+
+## Start the minikube with --vm-driver=none mode
+```sh
+start --vm-driver=none --registry-mirror=https://registry.docker-cn.com --kubernetes-version v1.14.0
+```
+## Run kubectl run command
+```sh
+kubectl run java-related --image=ht5767751012/java-related:js-01 --port=8080
+# Pay attention that the running host will expose port on 8080, and 8080 is the port of the web request
+```
+## Run kubectl get pod
+```sh
+kubectl get pod
+```
+
+## Run minikube dashboard
+```sh
+minikube dashboard
+```
+## Display services information on dashboard
+
+![Kubernetes-minikube-dashboard-services](https://github.com/HuangMarco/Kubernetes-entry/blob/dev/z_Resources/images/kubernetes-minikube-dashboard-services.jpg)
+
+## Display service detail on dashboard
+
+![Kubernetes-minikube-dashboard-service-detail](https://github.com/HuangMarco/Kubernetes-entry/blob/dev/z_Resources/images/kubernetes-minikube-dashboard-service-detail.jpg)
+
+
+
+
+
