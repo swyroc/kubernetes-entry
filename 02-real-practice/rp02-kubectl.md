@@ -2,6 +2,8 @@
 Before you start this session, you should already completed the previous session.
 
 # Overview of kubectl
+Kubectl is the command line tool to kubernetes. By using kubectl you can see invoke the kubernetes api to interact with kubernetes.
+
 For overriew of kubectl you should visit [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/).
 
 # kubectl command
@@ -96,5 +98,24 @@ kubectl run hello-minikube --image=gcr.io/google_containers/echoserver:1.4 --por
 # kubectl delete deployment used to both of the two ways of running a container: kubectl run & kubectl expose
 
 kubectl delete deployment hello-minikube
+
+```
+
+# Interact with docker
+Docker is considered as the _container creator_, and kubernetes is considered as the _container orchestration_, that means:
+
+* Docker is responsible for creating container|image
+* Kubernetes is responsible for using container|image to create pod
+
+```sh
+docker pull <username>/<repository name>:<tag number>
+
+# Console prints information about the docker image. E.g: docker.io/ht576475012/java-related:js-01
+
+
+kubectl run <service name> --image=<the docker image address you get from previous command> --port=<give a port number here>
+# E.g: kubectl run java --image=docker.io/ht5767751012/java-related:js-01 --port=8989
+
+kubectl get pod # query the status of the new created pod
 
 ```
