@@ -4,3 +4,10 @@ The entry point is really important for every technology, without theory you wil
 <br>
 You can also use **theory** to do the retrospective activities.
 
+# Sequences to learn
+
+01-theory ==> 02-real-practice
+
+## Deeper
+t01 ==> t02 ==> rp01 ==> rp02 ==> t03
+
