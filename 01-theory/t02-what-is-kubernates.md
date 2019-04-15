@@ -35,11 +35,11 @@ But it is not necessary that replication occurs only during heavy load. A pod ca
 ## Deployments, replicas, and ReplicaSets
 A deployment is a YAML object that defines the pods and the number of container instances, called replicas, for each pod. You define the number of replicas you want to have running in the cluster via a ReplicaSet, which is part of the deployment object. So, for example, if a node running a pod dies, the replica set will ensure that another pod is scheduled on another available node.
 
-![Kubernetes-deployments](https://github.com/HuangMarco/Kubernetes-entry/blob/dev/z_Resources/images/Kubernetes-deployment.png)
+![Kubernetes-deployments](https://github.com/HuangMarco/Kubernetes-entry/blob/dev/z_Resources/images/kubernetes-deployment.png)
 
 ## Overall Structure
 
-![Kubernetes-components](https://github.com/HuangMarco/Kubernetes-entry/blob/dev/z_Resources/images/Kubernetes-components.jpg)
+![Kubernetes-components](https://github.com/HuangMarco/Kubernetes-entry/blob/dev/z_Resources/images/kubernetes-components.jpg)
 
 
 # Kubernetes Hardware
