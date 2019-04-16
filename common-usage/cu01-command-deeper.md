@@ -10,3 +10,7 @@ By running this command kubernetes will create an external load balancer with a 
 
 ```
 
+# kubectl get services
+```
+By running this command we can let Kubernetes list all of the services and we can see that container with public IP to let user hit the container remotely. Kubernetes supports an easy way to use workflow out of the box using the kubectl run and expose commands.
+```
