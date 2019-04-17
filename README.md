@@ -1,7 +1,13 @@
 # kubernates-entry
 This is the entrypoint of the kubernates.
 
+# Sequence for reading
+```
+01-theory ==> 02-real-practice
 
+t01 => t02 => rp01 => rp02 => t03 => rp03 => t04
+
+```
 
 # Reference Link
 https://www.aquasec.com/wiki/display/containers/70+Best+Kubernetes+Tutorials
