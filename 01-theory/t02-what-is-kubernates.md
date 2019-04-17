@@ -20,6 +20,11 @@ The master manages the scheduling and deployment of application instances across
 Each Kubernetes node runs an agent process called a kubelet that’s responsible for managing the state of the node: starting, stopping, and maintaining application containers based on instructions from the control plane. A kubelet receives all of its information from the Kubernetes API server.
 
 ## Pods
+* Pod represent a logical application
+* Pods represent and hold a collection of one or more containers. Generally if you have multiple containers with a hard dependency on each other then they would be packaged together inside of a single pod. 
+* Pods provides a shared namespace for their contents. This means the containers in the same Pods can communicate with each other, and also they share the attached volumes.
+* Pods also shared a network namespace. This means that a pod has one IP per pod.
+
 **The basic scheduling unit**, which consists of **one or more containers** guaranteed to be co-located on the host machine and able to share resources. Each pod is assigned a unique IP address within the cluster, allowing the application to use ports without conflict. You describe the desired state of the containers in a pod through a YAML or JSON object called a PodSpec. These objects are passed to the kubelet through the API server.
 <br>
 Kubernetes has some unique features and one of them is that it doesn’t run the containers directly. It rather wraps up one or more containers into a pod. The concept of a pod is that any containers within the same pod use the same resources and the same local network.
