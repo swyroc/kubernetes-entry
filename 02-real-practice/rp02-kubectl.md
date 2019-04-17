@@ -168,4 +168,7 @@ minikube dashboard
 ![Kubernetes-request-container](https://github.com/HuangMarco/Kubernetes-entry/blob/dev/z_Resources/images/kubernetes-request-container.jpg)
 
 
+## Explanation about the port forwarding
+Why we cannot directly access the application by cluster ip address with the app IP? You can refer to [port-forwarding](https://github.com/HuangMarco/kubernetes-entry/blob/dev/common-usage/kubernetest-command.md#port-forwarding).
+
 

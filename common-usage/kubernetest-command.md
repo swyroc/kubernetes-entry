@@ -20,3 +20,27 @@ PAS allocates a private IP address by default and cannot be reached outside of t
 ```sh
 kubectl port-forward <your pod name> <new port number>:<your pod port number>
 ```
+
+## view pod log
+```sh
+kubectl logs <your pod name>
+
+```
+### get the log that are updating in the real time
+```sh
+kubectl logs -f <your pod name>
+```
+
+## exec command to run an interactive show inside the model of pod
+This command was used to troubleshoot within the container.
+
+```sh
+kubectl exec <your pod name> --stdin --tty -c <your pod name> /bin/sh
+# Continueously you will type some other shell commands to do the troubleshooting
+$: ping ...
+$: exit # use exit to logout from the troubleshooting
+```
+
+
+
+
