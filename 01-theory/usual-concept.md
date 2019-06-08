@@ -34,4 +34,10 @@
     f. Auto-Scaling/restart/healing of containers and hosts
     g. Zero-downtime deploys
 
+### Docker Swarm 与K8S之间的比较
+* Docker已死，含义是docker技术越来越火，可是docker这家公司却活不下去了快
+* 为什么docker内置了docker swarm，但是docker官宣却说支持k8s？
+* K8s的前生是google十几年前遇到容器编排问题而研发的内部项目Borg，只是当下使用golang语言重新开发了Borg产生了k8s，十几年的容器编排经验导致了google在容器编排领域趟过了无数的坑，积累了无数的经验，这点其实引人深思。
+* Docker只是一家互联网公司，而其本身并不知道容器编排是为了解决什么，与google相比，太弱了。
+
 
