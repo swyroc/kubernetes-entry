@@ -30,7 +30,7 @@
     a. Service Discovery<br>
     b. Load Balancing<br>
     c. Secrets/configuration/storage management<br>
-    d. Healthc checks<br>
+    d. Health checks<br>
     f. Auto-Scaling/restart/healing of containers and hosts<br>
     g. Zero-downtime deploys<br>
 
@@ -44,8 +44,35 @@
 # K8S的习惯
 从上面可以看到,k8s管理的底层肯定是一个集群，在集群上运行容器的应用。没有了集群k8s就玩不了了，因为涉及到容器编排。底层可以是真实的物理机主机，也可以是一些虚拟机虚拟化资源。
 * 底层主机中，可以有多个Master，多个node，其中master被称为control panel，而node被称为data node。master是管理控制，而Node是真正干活的。
-* 多个master是为了冗余，一旦其中一个master宕机，另外的master可以快速顶上，而多个node是为了负载均衡以及冗余，多个node之间都需要同时工作，每个node做的事情都不相同
+* 多个master是为了冗余备用，一旦其中一个master宕机，另外的master可以快速接管，而多个node是为了负载均衡以及冗余，多个node之间都需要同时工作，每个node做的事情都不相同
 * 构建K8S集群，至少需要2个node，一个master。且这只是为了测试使用。生产环境至少要有2个以上的master，而node取决于使用场景。一般而言master3个就够了。
 * master的作用更多的是控制，其可以将所有的node组成一个资源池，master清晰了解资源池中的每个节点当下的空闲的cpu以及内存等信息，当有新的容器要被跑在node上的时候，master要知道将容器部署到哪个容器最好。
 * k8s运行的最小单元并不是node，而是称作pod的组件。
+
+
+## K8S 之 master
+* 所有的指令，API也好，UI也好，CLI也好，都必须经过master然后才能继续向下发，去某个Node去运行。
+* Master由API Server, Scheduler, Controller，etcd组成，前三个是由k8s自己提供，而后面的是一个叫作CoreOS的公司提供，etcd可以想象成就是一个类似于Redis的k-v存储系统。后来被红帽收购
+
+### Scheduler
+调度器。用来评估到底哪个Node是最佳目标节点
+
+### Controller
+控制器。K8S提供的API是声明式API。即K8S有自己一套完备的逻辑去实现调用者的需求，而不需要调用者去关心调用的细节。调用者只需要告诉K8S需要执行什么即可。Controller需要去负责具体的执行细节。是K8S Master的大脑核心。Controller会使用到control loop。
+
+### API Server
+整个K8S的功能要提供给客户端来调用，因此API Server是K8S唯一接受请求的入口。用于检查用户请求是否合规，如果合规就将请求保存在ETCD中。用户所有的请求都会到达api server，api server存储用户的请求，controller始终watch着api server中的资源变动需求。同样Scheduler也始终watch着api server。在K8S中，资源始终有两种状态，其中一个是用户请求并保存在ETCD中用户期待的状态，另外一个是真实的实际的运行状态。Controller始终检查对比着这2种状态。如果状态不一致，那么controller需要负责确保状态一致。
+
+### ETCD
+ETCD用户保存用户所描述的期待的容器的状态，因为用户的需求大多数是不可控的，为了最大限度下确保用户的请求是合规的，所以API Server对用户能发出的请求做了进一步的约束，规定哪些对于ETCD的请求是合规的，用户所发出的请求必须满足哪些规范。
+
+
+
+
+
+
+
+
+
+
 
