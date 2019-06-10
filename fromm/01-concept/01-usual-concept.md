@@ -55,7 +55,7 @@
 * Master由API Server, Scheduler, Controller，etcd组成，前三个是由k8s自己提供，而后面的是一个叫作CoreOS的公司提供，etcd可以想象成就是一个类似于Redis的k-v存储系统。后来被红帽收购
 
 ### Scheduler
-调度器。用来评估到底哪个Node是最佳目标节点
+调度器。用来评估到底哪个Node是最佳目标节点,选取哪个Node作为target node。调度完成之后，Scheduler会把选举的结果也保存在Master的ETCD中。Scheduler并不直接指挥Node去完成具体的工作，而是交由Controller来完成。
 
 ### Controller
 控制器。K8S提供的API是声明式API。即K8S有自己一套完备的逻辑去实现调用者的需求，而不需要调用者去关心调用的细节。调用者只需要告诉K8S需要执行什么即可。Controller需要去负责具体的执行细节。是K8S Master的大脑核心。Controller会使用到control loop。
@@ -66,7 +66,11 @@
 ### ETCD
 ETCD用户保存用户所描述的期待的容器的状态，因为用户的需求大多数是不可控的，为了最大限度下确保用户的请求是合规的，所以API Server对用户能发出的请求做了进一步的约束，规定哪些对于ETCD的请求是合规的，用户所发出的请求必须满足哪些规范。
 
+### Node Kublet
+Node上的第一个组件,每个Node上也运行着kublet，kublet也时刻watch着api server上的资源变动，当scheduler完成调度选取之后，也会将调度结果保存在master etcd中，当api server上有资源变动的时候，kublet监测到这个资源变动是交给自己所在的node来负责，那么kublet就会运行执行任务。首先kublet会去找docker，docker会负责去执行下载镜像，创建容器等动作。
 
+### Node docker
+Node上面的第二个重要的组件。
 
 
 
