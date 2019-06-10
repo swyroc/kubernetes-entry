@@ -17,22 +17,22 @@
 
 ## 容器编排系统 - Container Orchestration
 * 容器编排系统用来管理容器的生命周期，特别是在大型的动态的环境中使用会更好
-* 容器编排系统可以完成以下内容：
-    a. 容器的提供和部署 - 如何获得容器镜像，如何部署容器，如何运行容器
-    b. 容器的冗余和可用性 - 一旦容器发生故障，如何通过机制将容器自动的恢复过来，步骤必须是自动的
-    c. 按需分配，扩容伸缩，如何根据某种机制自动的进行扩容和伸缩。节点不够扩容，资源闲置时缩容
-    d. 一旦底层资源紧张，那么自动将容器迁移到别的节点，用户对此无感知
-    e. 容器之间进行资源分配，甚至在某种情况下将集群内部的资源暴露到集群外部去，以便对外提供访问
-    f. 负载均衡，以及容器之间的服务发现
-    g. 健康监测-health check
-    h. 应用程序的配置等
+* 容器编排系统可以完成以下内容：<br>
+    a. 容器的提供和部署 - 如何获得容器镜像，如何部署容器，如何运行容器<br>
+    b. 容器的冗余和可用性 - 一旦容器发生故障，如何通过机制将容器自动的恢复过来，步骤必须是自动的<br>
+    c. 按需分配，扩容伸缩，如何根据某种机制自动的进行扩容和伸缩。节点不够扩容，资源闲置时缩容<br>
+    d. 一旦底层资源紧张，那么自动将容器迁移到别的节点，用户对此无感知<br>
+    e. 容器之间进行资源分配，甚至在某种情况下将集群内部的资源暴露到集群外部去，以便对外提供访问<br>
+    f. 负载均衡，以及容器之间的服务发现<br>
+    g. 健康监测-health check<br>
+    h. 应用程序的配置等<br>
 以上所有功能必须都是自动完成的。总结以下最主要的几个功能：
-    a. Service Discovery
-    b. Load Balancing
-    c. Secrets/configuration/storage management
-    d. Healthc checks
-    f. Auto-Scaling/restart/healing of containers and hosts
-    g. Zero-downtime deploys
+    a. Service Discovery<br>
+    b. Load Balancing<br>
+    c. Secrets/configuration/storage management<br>
+    d. Healthc checks<br>
+    f. Auto-Scaling/restart/healing of containers and hosts<br>
+    g. Zero-downtime deploys<br>
 
 ### Docker Swarm 与K8S之间的比较
 * Docker已死，含义是docker技术越来越火，可是docker这家公司却活不下去了快
