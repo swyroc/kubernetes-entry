@@ -70,7 +70,14 @@ ETCD用户保存用户所描述的期待的容器的状态，因为用户的需�
 Node上的第一个组件,每个Node上也运行着kublet，kublet也时刻watch着api server上的资源变动，当scheduler完成调度选取之后，也会将调度结果保存在master etcd中，当api server上有资源变动的时候，kublet监测到这个资源变动是交给自己所在的node来负责，那么kublet就会运行执行任务。首先kublet会去找docker，docker会负责去执行下载镜像，创建容器等动作。
 
 ### Node docker
-Node上面的第二个重要的组件。
+Node上面的第二个重要的组件。K8S支持的标准的容器引擎。K8S也支持RKT等其他容器引擎。对于其他引擎是通过CRI插件来支持。只要该引擎能对接到CRI那么K8S就能识别并运行。
+
+### POD
+POD才是K8S运行的基本原子单元。容器之外又加了一层壳，这层外壳就是POD，一个POD中可能存在多个容器，这些容器被当作原子单元管理。
+
+
+
+
 
 
 
