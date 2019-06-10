@@ -26,7 +26,7 @@
     f. 负载均衡，以及容器之间的服务发现<br>
     g. 健康监测-health check<br>
     h. 应用程序的配置等<br>
-以上所有功能必须都是自动完成的。总结以下最主要的几个功能：
+以上所有功能必须都是自动完成的。总结以下最主要的几个功能：<br>
     a. Service Discovery<br>
     b. Load Balancing<br>
     c. Secrets/configuration/storage management<br>
