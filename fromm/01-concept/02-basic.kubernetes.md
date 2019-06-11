@@ -78,6 +78,16 @@ nmt
 * 控制器自动完成，控制器封装了运维人员运维操作的内容，所以控制器可以替代运维人员，但是仅仅针对于静态内容管理
 
 
+# Kubernetes Network
+![Kubernetes Network](https://github.com/HuangMarco/Kubernetes-entry/blob/dev/z_Resources/images/kubernetes-network.jpg)
+
+* 节点与节点之间有节点网络，节点有自己的IP地址，通过IP进行通信
+* 每个Node内的各个POD之间有POD网络，POD和POD通过POD IP通信
+* Service网络
+* Node01中的POD要访问Node02中的POD需要跨越2个网络：Service网络和POD网络
+
+
+
 
 
 
