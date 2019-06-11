@@ -57,6 +57,28 @@ nmt
 * t - nginx
 * m - t的的程序
 
+比如拿nmt即：nginx, mysql, tomcat三者来说，nginx的客户端是用户的浏览器，是远程的客户端，t的客户端是nginx，因为nginx要向tomcat发生访问。mysql的客户端是运行在tomcat上的应用程序。
+<br>
+在K8S上的设计：
+* nginx不能直接访问tomcat，而是应当在tomcat与nginx之间添加一个新的service层，nginx直接访问service层
+* service层转发请求到tomcat
+* tomcat访问mysql的service层，mysql service层将请求转发至mysql
+* nginx控制器来管理nginx pod
+* tomcat控制器来管理tomcat pod
+* mysql控制器来管理mysql pod
+* 客户端也不会直接到达nginx，而是先到达nginx的service层
+
+**所以从上面看，使用K8S已经完完全全带来了整体操作方式的改变。需要从资源设计收集入手，去规划大致一个集群需要多少资源**。这点非常重要！从上会得出即将产生9个资源：
+* 3个控制器 - 由用户直接创建
+* 3个service层 - 由用户直接创建
+* 3个pod 由控制器创建，非我们直接创建
+
+所以由此产生一个非常重要的思想：当架构迁移到K8S上的时候，考虑的习惯和设计和以往传统的思维大相径庭，需要从一开始就计算需要多少层，多少控制器多少资源等等等等。
+
+
+
+
+
 
 
 
