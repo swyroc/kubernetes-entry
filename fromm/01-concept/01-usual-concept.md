@@ -56,12 +56,17 @@
 
 ### Scheduler
 调度器。用来评估到底哪个Node是最佳目标节点,选取哪个Node作为target node。调度完成之后，Scheduler会把选举的结果也保存在Master的ETCD中。Scheduler并不直接指挥Node去完成具体的工作，而是交由Controller来完成。
+<br>
+程序名叫kube-scheduler。
 
 ### Controller
 控制器。K8S提供的API是声明式API。即K8S有自己一套完备的逻辑去实现调用者的需求，而不需要调用者去关心调用的细节。调用者只需要告诉K8S需要执行什么即可。Controller需要去负责具体的执行细节。是K8S Master的大脑核心。Controller会使用到control loop。
+<br>
+程序名叫kube-controller-manager.
 
 ### API Server
-整个K8S的功能要提供给客户端来调用，因此API Server是K8S唯一接受请求的入口。用于检查用户请求是否合规，如果合规就将请求保存在ETCD中。用户所有的请求都会到达api server，api server存储用户的请求，controller始终watch着api server中的资源变动需求。同样Scheduler也始终watch着api server。在K8S中，资源始终有两种状态，其中一个是用户请求并保存在ETCD中用户期待的状态，另外一个是真实的实际的运行状态。Controller始终检查对比着这2种状态。如果状态不一致，那么controller需要负责确保状态一致。
+整个K8S的功能要提供给客户端来调用，因此API Server是K8S唯一接受请求的入口。用于检查用户请求是否合规，如果合规就将请求保存在ETCD中。用户所有的请求都会到达api server，api server存储用户的请求，controller始终watch着api server中的资源变动需求。同样Scheduler也始终watch着api server。在K8S中，资源始终有两种状态，其中一个是用户请求并保存在ETCD中用户期待的状态，另外一个是真实的实际的运行状态。Controller始终检查对比着这2种状态。如果状态不一致，那么controller需要负责确保状态一致。<br>
+程序名叫kube.
 
 ### ETCD
 ETCD用户保存用户所描述的期待的容器的状态，因为用户的需求大多数是不可控的，为了最大限度下确保用户的请求是合规的，所以API Server对用户能发出的请求做了进一步的约束，规定哪些对于ETCD的请求是合规的，用户所发出的请求必须满足哪些规范。
@@ -73,7 +78,17 @@ Node上的第一个组件,每个Node上也运行着kublet，kublet也时刻watch
 Node上面的第二个重要的组件。K8S支持的标准的容器引擎。K8S也支持RKT等其他容器引擎。对于其他引擎是通过CRI插件来支持。只要该引擎能对接到CRI那么K8S就能识别并运行。
 
 ### POD
-POD才是K8S运行的基本原子单元。容器之外又加了一层壳，这层外壳就是POD，一个POD中可能存在多个容器，这些容器被当作原子单元管理。
+POD才是K8S运行的基本原子单元。容器之外又加了一层壳，这层外壳就是POD，一个POD中可能存在多个容器，这些容器被当作原子单元管理。一个node中可以有多个POD.
+
+
+#### Linux的底层特性
+* PID
+* Network
+* Mount
+* IPC
+* USER
+* UTS
+同一个POD中的多个容器，共享UTS, IPC, Network。
 
 
 
