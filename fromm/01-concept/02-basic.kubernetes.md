@@ -97,8 +97,35 @@ nmt
 
 
 
+# 涉及到的部署工具以及一些概念
+* kubeadm
+* kops
+* kubespray
+* kontena Pharos
+
+## 二次封装的常用发行版
+* Rancher - Rancher Labs二次发行的K8S
+* Tectonic - CoreOS二次发行的K8S
+* Openshift - 需要首先会ansible，是红帽子公司基于K8S的二次发行版，将不成熟部分隔离，只保留K8S成熟部分。
+
+上面最著名的是Rancher和Openshift.后者是美籍华人创建的容器编排系统。目前来说绝大部分的公司使用的都是K8S的原始版。
 
 
+# K8S的部署方式
+K8S有两种部署方式,两种运行逻辑：
+
+![Kubernetes Deployment](https://github.com/HuangMarco/Kubernetes-entry/blob/dev/z_Resources/images/kubernetes-deployment-01.jpg)
+
+上图中，每个关键组件都运行为守护进程。如果是守护进程，那么master上是不需要有kubelet以及docker的。只有容器才需要kubelet,docker。最上面的是addons。
+
+![Kubernetes Deployment 02](https://github.com/HuangMarco/Kubernetes-entry/blob/dev/z_Resources/images/kubernetes-deployment-02.jpg)
+
+上图表示每个组件都运行为容器。且master和node都有相同的Kubelet以及docker组件。kubeadm是以第二种方式运行的，master上的组件都要运行为pod，node上的组件也都要运行为pod。而在底层都要以Kubelet以及docker运行容器。既然第二种部署方式是以POD形式来运行的，那么要运行POD就需要镜像image，那么从哪里获取到相应的image就是一个难题。这些镜像都在gcr.io上。即可google container registry。该网站在国内是无法访问的。K8S的安装由于国内无法访问gcr.io。
+
+<br>
+* 使用Kubeadm以第二种方式部署运行K8S，那么由于国内无法访问gcr.io，导致各个组件POD的镜像无法被下载。需要使用某种方式拿到下载好的镜像
+* Kublet镜像阿里已经开放入口获取
+* 先安装kubelet，然后才能安装kubeadm，安装好kubeadm之后，然后才能以容器化的方式运行POD，从而部署好整个集群
 
 
 
