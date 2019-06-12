@@ -123,6 +123,7 @@ K8S有两种部署方式,两种运行逻辑：
 上图表示每个组件都运行为容器。且master和node都有相同的Kubelet以及docker组件。kubeadm是以第二种方式运行的，master上的组件都要运行为pod，node上的组件也都要运行为pod。而在底层都要以Kubelet以及docker运行容器。既然第二种部署方式是以POD形式来运行的，那么要运行POD就需要镜像image，那么从哪里获取到相应的image就是一个难题。这些镜像都在gcr.io上。即可google container registry。该网站在国内是无法访问的。K8S的安装由于国内无法访问gcr.io。
 
 <br>
+
 * 使用Kubeadm以第二种方式部署运行K8S，那么由于国内无法访问gcr.io，导致各个组件POD的镜像无法被下载。需要使用某种方式拿到下载好的镜像
 * Kublet镜像阿里已经开放入口获取
 * 先安装kubelet，然后才能安装kubeadm，安装好kubeadm之后，然后才能以容器化的方式运行POD，从而部署好整个集群
