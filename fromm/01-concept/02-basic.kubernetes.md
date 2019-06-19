@@ -64,7 +64,7 @@ K8S引入了DNS组件。
 nmt
 * n - nginx的客户端，表示远程客户端，即发起请求的客户端
 * t - nginx
-* m - t的的程序
+* m - t中运行的的应用程序
 
 比如拿nmt即：nginx, mysql, tomcat三者来说，nginx的客户端是用户的浏览器，是远程的客户端，t的客户端是nginx，因为nginx要向tomcat发生访问。mysql的客户端是运行在tomcat上的应用程序。
 <br>
