@@ -33,7 +33,7 @@ deb https://mirrors.aliyun.com/kubernetes/apt/ kubernetes-xenial main
 
 ```
 
-## 开始下载安装
+## 开始下载安装kubeadm，kubelet, kubectl
 在公司防火墙内部不确定可行不可行哈
 ```sh
 
@@ -45,5 +45,7 @@ sudo apt-mark hold kubelet kubeadm kubectl
 
 
 # 初始化
+
+## 初始化Master节点
 
 
