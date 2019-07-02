@@ -2,4 +2,4 @@
 
 | Resource Name | Value |
 | :--- | :--- |
-| Helm Official Doc | https://helm.sh/ |
+| Helm Official Doc | https://helm.sh/docs/|
