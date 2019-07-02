@@ -7,3 +7,11 @@ https://courses.edx.org/dashboard
 
 # Course Kubernetes
 https://classroom.udacity.com/courses/ud615/lessons/7824962412/concepts/81991020630923
+
+
+
+# Valuable Resources
+
+| Resource Name | Value |
+| :--- | :--- |
+| K8S Tutorial 1 | https://jimmysong.io/kubernetes-handbook/concepts/ |
