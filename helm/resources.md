@@ -2,6 +2,7 @@
 
 | Resource Name | Value |
 | :--- | :--- |
+| Helm Git Hub | https://github.com/helm/helm |
 | Helm Official Doc | https://helm.sh/docs/|
 | Kubernetes中文社区-Helm | https://www.kubernetes.org.cn/3435.html |
 | Helm Tutorial 1| https://ezmo.me/2017/09/24/helm-quick-toturial/ |
