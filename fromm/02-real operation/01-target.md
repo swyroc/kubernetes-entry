@@ -141,7 +141,10 @@ https://www.cnblogs.com/zhangmingcheng/p/7084836.html
 
 但是在家里的电脑上完全没有必要这样。可以直接诶docker login，国内没有禁掉该功能。
 
-更多功能要访问：
+更多功能要访问：https://github.com/HuangMarco/docker-gg/blob/dev/docker-operation/usual-docker-maintenence.md#docker-daemonjson
+一定要访问！
+
+
 
 4. 因为上面用到了代理，那么一旦你配制了代理，但是当K8S去访问本地的网络的情况下是没有必要配置代理的，那么我们需要将本地网络排除在外。
 
