@@ -46,6 +46,9 @@ vi /etc/hosts
 # <node 1 IP 地址> node01.hk.com node01
 # <node 2 IP 地址> node02.hk.com node02
 # <node 3 IP 地址> node03.hk.com node03
+
+nslookup node01.hk.com 
+
 ```
 
 注意：需要为各个节点同步相同的信息在/etc/hosts文件中。
