@@ -66,7 +66,8 @@
 
 ### API Server
 整个K8S的功能要提供给客户端来调用，因此API Server是K8S唯一接受请求的入口。用于检查用户请求是否合规，如果合规就将请求保存在ETCD中。用户所有的请求都会到达api server，api server存储用户的请求，controller始终watch着api server中的资源变动需求。同样Scheduler也始终watch着api server。在K8S中，资源始终有两种状态，其中一个是用户请求并保存在ETCD中用户期待的状态，另外一个是真实的实际的运行状态。Controller始终检查对比着这2种状态。如果状态不一致，那么controller需要负责确保状态一致。<br>
-程序名叫kube.
+程序名叫kube.<br>
+K8S master提供api server，在整个集群中，只有api server才会直接接受用户请求。
 
 ### ETCD
 ETCD用户保存用户所描述的期待的容器的状态，因为用户的需求大多数是不可控的，为了最大限度下确保用户的请求是合规的，所以API Server对用户能发出的请求做了进一步的约束，规定哪些对于ETCD的请求是合规的，用户所发出的请求必须满足哪些规范。
