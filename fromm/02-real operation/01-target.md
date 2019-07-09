@@ -34,6 +34,23 @@ master和各个node节点的系统环境要预先设置好，满足我们的一�
 * 如果要使用ipvs模型的proxy，还要通过手动让各个节点载入ipvs相关的模块。service有两种类型，一种是iptables，一种是ipvs。
 
 
+#### 时间同步
+因为是Ubuntu系统，所以这里不再进行任何的时间同步。
+
+#### 各个节点主机名称解析
+```sh
+vi /etc/hosts
+
+# 添加以下内容：
+# <master IP 地址> master.hk.com master
+# <node 1 IP 地址> node01.hk.com node01
+# <node 2 IP 地址> node02.hk.com node02
+# <node 3 IP 地址> node03.hk.com node03
+```
+
+注意：需要为各个节点同步相同的信息在/etc/hosts文件中。
+
+
 
 
 ### 安装程序包
