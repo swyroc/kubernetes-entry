@@ -150,11 +150,21 @@ https://www.cnblogs.com/zhangmingcheng/p/7084836.html
 
 vi /lib/systemd/system/docker.service
 
-# Add below:
-
-ExecStartPost=/usr/sbin/iptables -P FORWARD ACCEPT
 
 
+# 实践中的更改:
+所以综合上面，我们最终只需要为第一点和第二点进行设置。
+
+第一点：
+使用阿里云加速：https://www.jianshu.com/p/316ebd4094c1
+
+第二点：
+ExecStartPost=/usr/sbin/iptables -P FORWARD ACCEPT （适用于CentOS）
+systemctl daemon-reload # 每次更改完docker.service都要重新加载daemon，哪怕你没有daemon.json
+systemctl start docker.service
+但是很遗憾，按照上面添加不成功。狗屎!
+不过后来我找到原因了，是因为在Ubuntu环境上，iptables不再/usr/sbin/目录下，而在根目录下/sbin/iptables，所以将上面内容更新
+ExecStartPost=/sbin/iptables -P FORWARD ACCEPT (适用于Ubuntu)
 
 
 ```
