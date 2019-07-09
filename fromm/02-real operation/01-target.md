@@ -115,6 +115,49 @@ cd /usr/lib/modules/kernal/net/netfilter/ipvs
 速度杠杠滴
 ```
 
+### docker服务的配置
+**要注意：**Kubernetes使用docker存在几个问题：
+* docker安装本身并没有配置文件，需要手动添加配置文件daemon.json
+* docker要使用加速服务
+* docker的默认的某些配置必须要更改
+* docker的某些镜像在国内是访问不到的，所以要相应做一些修改
+
+#### 更改docker.service配置项
+```
+1. docker镜像要启动加速服务
+
+2. docker默认启动之后会将iptables的默认策略从FARWARD改为DROP，而此行为会影响K8S的集群依赖的报文转发功能。因此需要在docker服务启动之后，
+重新将FORWARD链默认策略改回ACCEPT。
+
+3. 默认情况下kubernetes中docker去启动POD时用到的几个镜像会通过默认的k8s.gcr.io去获取。但是默认国内是无法访问k8s.gcr.io的。
+如果要通过默认的k8s.gcr.io镜像仓库获取Kubernetes系统组件的相关镜像，需要配置docker Unit File (Ubuntu下/lib/systemd/system/docker.service，CentOS为/usr/lib/systemd/system/docker.service)中的
+Environment环境变量，为其定义适用的HTTPS_PROXY，指定一个服务器让我们跳转以便去访问k8s.gcr.io
+
+备注：个人对上面第三点比较怀疑，因为在本地实际测试，docker login是可以成功的，所以案例就是在某些情况下当你的网络受到限制的时候，你确实是需要做一些设置以便让你成功的登陆docker>
+比如你再某些公司网段，而公司内部限制了对于docker hub的访问权限，那么你确实是无法访问到docker hub，以及docker login的。那么此时你就需要采用上面的某些方式，比如架设代理服务器，代理服务器可以访问docker hub，或者docker registry。
+
+可以：https://www.cnblogs.com/atuotuo/p/7298673.html
+https://www.cnblogs.com/zhangmingcheng/p/7084836.html
+
+但是在家里的电脑上完全没有必要这样。可以直接诶docker login，国内没有禁掉该功能。
+
+更多功能要访问：
+
+4. 因为上面用到了代理，那么一旦你配制了代理，但是当K8S去访问本地的网络的情况下是没有必要配置代理的，那么我们需要将本地网络排除在外。
+
+vi /lib/systemd/system/docker.service
+
+# Add below:
+
+ExecStartPost=/usr/sbin/iptables -P FORWARD ACCEPT
+
+
+
+
+```
+
+
+
 ## 添加阿里云的kubernetes apt-key
 ```sh
 sudo apt update && sudo apt install -y apt-transport-https curl
