@@ -52,6 +52,46 @@ vi /etc/hosts
 
 
 
+#### 关闭iptables和firewalld
+```sh
+systemctl status firewalld
+systemctl status iptables
+
+
+systemctl stop firewalld.service
+systemctl stop iptables.service
+systemctl disable firewalld.service
+systemctl disable iptables.service
+```
+
+#### 禁用SELinux
+```sh
+getenforce
+
+vi /etc/selinux/config # 从enforcing改为disabled
+# vi /ect/sysconfig/selinux/config
+
+```
+要确保每个节点的SELinux都处于关闭状态。
+
+#### 关闭swap
+```sh
+free -m # 可以查看swap space
+
+swapoff -a # 禁用swap设备，关闭所有swap设备，只是临时有效。
+
+vi /etc/fstab #注释掉所有swap类型的设备
+
+```
+
+#### 启用ipvs内核模块
+
+```sh
+cd /usr/lib/modules/kernal/net/netfilter/ipvs
+可以看到上面的这个目录下包含了很多其他的文件。
+
+```
+
 
 ### 安装程序包
 在master和各个Node节点上安装程序包，比如docker, kubelet, kubeadm等。
