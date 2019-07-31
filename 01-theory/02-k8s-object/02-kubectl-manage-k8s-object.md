@@ -78,8 +78,54 @@ kubectl create -f nginx.yaml - 根据nginx.yml中的定义来创建相应的对�
 
 # 声明式(陈述式)管理 - Declarative object configuration
 ```
+首先呢，K8S是基于声明式来设计的。记得之前我们提到过，在K8S中，每个object都有
+两种属性内容：spec和status。所谓声明式呢，就是告诉K8S你最终想要的东西，而任何时刻
+某个对象都会有一个现实中的实际状态，这就是status.
+
+K8S不断的扫描比较现实和理想中的差异，以此来为用户服务，到底是创建还是更新。
+
+那么与之前命令式的区别在于：
+    声明式不会有操作符，比如create, replace, delete, read等
+
+但是配置文件该有的，还是要有的
+另外一个区别是：
+    命令式对于目录的操作不够好，而对于声明式操作，运维可以把所有要操作的描述内容，全部放在
+    某个目录下，然后通过kubectl调用，让其自动扫描该目录，然后完成所有必须的操作。
+
+
+kubectl diff -f configs/
+kubectl apply -f configs/
+
+循环更新目录以及其子目录，一直到最终没有子目录为止
+kubectl diff -R -f configs/
+kubectl apply -R -f configs/
+
 
 ```
 
+## 优缺点
+```
+优点：
+    直接对活动对象所做的更改将保留，即使它们没有合并回配置文件中。
+    声明性对象配置更好地支持在目录上操作和自动检测每个对象的操作类型（创建、修补、删除）
 
+缺点：
+    当结果出乎意料时，声明性对象配置很难调试和理解结果。 - 因为变得复杂了，都是描述性的东西，你无法根据内容就直接看到最终结尾
+    使用diff的部分更新创建复杂的合并和修补操作
+```
+
+# 有用链接
+```
+一定要看：
+    大神详解 Kubernetes 配置管理最佳方法 
+        https://blog.csdn.net/qq_34463875/article/details/78390111
+
+```
+
+# 下一步分叉
+```
+K8S Tasks:
+    https://kubernetes.io/docs/tasks/manage-kubernetes-objects/declarative-config/
+    
+```
 
