@@ -16,6 +16,11 @@ K8S的namespaces功能会限定你起到name的范围。比如在一个命名空
 
 怎样创建命名空间：https://kubernetes.io/docs/tasks/administer-cluster/namespaces/
 
+
+不管是什么k8s资源，pods, services, replication controllers都是在命名空间里被管理的。
+但是有些低级别低维度的资源，比如nodes,persistent volumes，并不在namespace中。
+
+
 ```
 
 # 操作
@@ -51,3 +56,22 @@ kube-public   Active    1d
     kubectl config view | grep namespace:    
 ```
 
+# namespace与service
+```
+当你创建一个service的时候，就会默认创建一条DNS记录。这条记录由以下几部分组成：
+    <service-name>.<namespace-name>.svc.cluster.local
+上面意味着如果一个容器使用<service-name>，那么就会默认路由到这个service
+    最终肯定会链接到某个namespace上。
+如果要跨namespace，那么就要使用FQDN。
+
+```
+
+## 哪些不在namespace
+```
+# In a namespace
+kubectl api-resources --namespaced=true
+
+# Not in a namespace
+kubectl api-resources --namespaced=false
+
+```
