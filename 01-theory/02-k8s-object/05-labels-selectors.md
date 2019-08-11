@@ -1,6 +1,7 @@
 # Labels
 ```
-何为labels？
+何为labels？ 记住了其实就是用来定义metadata元数据的东西
+
 1.其实就是key-values键值对。
 2.键值对attach到了ks object之上。
 3.可以在创建的时候即被附着到object上，也可以在后面随时更改
@@ -16,7 +17,7 @@
     系统组件比如kube-scheduler,kube-controller-manager等以及其他第三方必须加前缀
     kubernetes.io/和k8s.io/是官方预留前缀
 
-    label
+
 
 ```
 
